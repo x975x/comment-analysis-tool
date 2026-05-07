@@ -287,7 +287,7 @@ def get_topic_plotly(lda_model, dtm, vectorizer, num_words=15):
         yaxis2=dict(
             domain=[0, 1],
             anchor='x2',          # ← 绑定到右侧x轴，关键词出现在条形图左侧
-            autorange='reversed',
+            autorange=True,
             showgrid=False,
             side='left',
         ),
