@@ -22,13 +22,22 @@ from sklearn.metrics.pairwise import cosine_distances
 # ── 中文字体（matplotlib 用）─────────────────────────────────
 def _set_chinese_font():
     import matplotlib.font_manager as fm
+    import os
+    for root, _, files in os.walk('/usr/share/fonts'):
+        for f in files:
+            if f.lower().endswith(('.ttf', '.ttc', '.otf')):
+                try:
+                    fm.fontManager.addfont(os.path.join(root, f))
+                except Exception:
+                    pass
     available = {f.name for f in fm.fontManager.ttflist}
-    for font in ['Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC',
-                 'Noto Sans SC', 'WenQuanYi Micro Hei', 'DejaVu Sans']:
+    for font in ['Noto Sans CJK SC', 'Noto Sans CJK JP', 'Microsoft YaHei',
+                 'SimHei', 'Noto Sans SC', 'WenQuanYi Micro Hei', 'DejaVu Sans']:
         if font in available:
             matplotlib.rcParams['font.sans-serif'] = [font, 'DejaVu Sans']
             break
     matplotlib.rcParams['axes.unicode_minus'] = False
+    
 
 _set_chinese_font()
 
