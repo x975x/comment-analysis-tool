@@ -124,7 +124,7 @@ def run_analysis(df, text_col, topics_dict, stopwords, min_score=1):
         '命中主题': r['命中主题'],
     } for r in records])
 
-    topics_list = list(topics_dict.keys())
+    topics_list = sorted(topics_dict.keys(), key=lambda t: topic_count[t], reverse=True)
     counts      = [topic_count[t] for t in topics_list]
     weights     = [weight[t]      for t in topics_list]
     bar_colors  = [_COLORS[i % len(_COLORS)] for i in range(len(topics_list))]
