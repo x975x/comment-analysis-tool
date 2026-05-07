@@ -144,7 +144,7 @@ def run_analysis(df, text_col, topics_dict, stopwords, min_score=1):
         yaxis=dict(title='提及次数（评论数）', showgrid=True, gridcolor='#f0f0f0'),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        height=420,
+        height=400,
         margin=dict(t=60, b=60, l=60, r=20),
     )
     bar_fig.update_xaxes(showgrid=False)
@@ -160,7 +160,7 @@ def run_analysis(df, text_col, topics_dict, stopwords, min_score=1):
     ))
     pie_fig.update_layout(
         title=dict(text='各主题权重分布（基于提及次数归一化）', font=dict(size=14)),
-        height=340,
+        height=400,
         margin=dict(t=50, b=20, l=20, r=20),
         legend=dict(orientation='v', x=1.02, y=0.5),
     )
