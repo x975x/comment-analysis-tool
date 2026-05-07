@@ -401,10 +401,13 @@ else:
 
         # 图表
         st.markdown("### 📈 可视化图表")
-        st.markdown("#### 📊 各主题提及次数（条形图）")
-        st.plotly_chart(res['bar_fig'], use_container_width=True)
-        st.markdown("#### 🥧 各主题权重分布（饼图）")
-        st.plotly_chart(res['pie_fig'], use_container_width=True)
+        col_bar, col_pie = st.columns(2)
+        with col_bar:
+            st.markdown("#### 📊 各主题提及次数（条形图）")
+            st.plotly_chart(res['bar_fig'], use_container_width=True)
+        with col_pie:
+            st.markdown("#### 🥧 各主题权重分布（饼图）")
+            st.plotly_chart(res['pie_fig'], use_container_width=True)
 
         # 示例评论
         st.markdown("### 💬 各主题示例评论")
